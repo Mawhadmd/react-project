@@ -6,7 +6,13 @@ import FilledButton from "./buttons/filledbutton.tsx";
 import PhoneNavBar from "./PhoneNavBar.tsx";
 
 export default function Navbar() {
+  const location = useLocation();
   const [phoneNav, SetphoneNav] = useState(false);
+
+  useEffect(() => {
+    
+    SetphoneNav(false)
+  }, [location]);
   useEffect(() => {
     if (!phoneNav) return;
     const handleResize = () => {
@@ -30,6 +36,7 @@ export default function Navbar() {
   }
     window.addEventListener("resize", handleResize);
     window.addEventListener("click", handleClick);
+   
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("click", handleClick);
