@@ -1,5 +1,5 @@
 import ContactCards from "../components/ContactCards.tsx";
-import { Mail, MessageCircleIcon } from "lucide-react";
+import { Mail, MessageCircleIcon, MessageSquareMore, MessageSquareMoreIcon } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -9,6 +9,7 @@ export default function Contact() {
       <ContactCards icon={<Mail className="size-10 text-accent"/>} title="Email" availablity="Available 24/7 - Response in 24 hours" />
 
       <ContactCards icon={<MessageCircleIcon className="size-10 text-accent"/>} title="Live Chat" availablity="Not available" available={false} />
+      <ContactCards icon={<MessageSquareMoreIcon className="size-10 text-accent"/>} title="Community" availablity="Coming Soon" available={false} />
      </div>
     </div>
   );

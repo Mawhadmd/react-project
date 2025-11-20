@@ -1,11 +1,13 @@
-import { RefreshCcw } from "lucide-react";
-import { use } from "react";
+import { List, ListCheck, RefreshCcw } from "lucide-react";
+import { use, useState } from "react";
 import { Link, useLocation } from "react-router";
 import BorderedButton from "./buttons/borderedbutton.tsx";
 import FilledButton from "./buttons/filledbutton.tsx";
+import PhoneNavBar from "./PhoneNavBar.tsx";
 
 
 export default function Navbar() {
+  const [phoneNav, SetphoneNav] = useState(false);
   const currentpage = useLocation().pathname;
   const pages = [
           { to: "/Pricing", label: "Pricing" },
@@ -15,25 +17,28 @@ export default function Navbar() {
           { to: "/content-creators", label: "Content Creators" },
         ]
   return (
-    <div className="flex justify-between items-center w-full p-8 mb-4 h-18">
+    <div className="  flex justify-between items-center w-full p-8 mb-4 h-18 gap-2">
       <div className="flex gap-1 font-bold text-2xl items-center justify-center">
         <RefreshCcw className="text-accent size-9" />
-        <p>
+        <h2>
           {" "}
           <Link to="/">Redistribute.io</Link>
-        </p>
+        </h2>
       </div>
-      <nav className="flex gap-8 ">
+ 
+       <nav className=" xl:gap-8 gap-4 lg:flex hidden text-[clamp(14px,1.5vw,18px)] whitespace-nowrap ">
         {pages.map((nav) => (
           <Link key={nav.to} to={nav.to} className={`border-b-4 p-2 hover:border-accent border-transparent ${currentpage === nav.to && "!border-accent/50"}`}>
             {nav.label}
           </Link>
         ))}
       </nav>
-      <div className="gap-2 flex">
-        <BorderedButton text="Log in" />
+      <div className="gap-2 lg:flex  hidden">
+        <BorderedButton  style="xl:block hidden" text="Log in" />
         <FilledButton text="Start Free Trial" />
-      </div>
+     </div>
+      <div onClick={() => SetphoneNav(true)} className="cursor-pointer h-full lg:hidden"><List></List></div>
+      <PhoneNavBar isopen={phoneNav} SetphoneNav={SetphoneNav}></PhoneNavBar>
     </div>
   );
 }

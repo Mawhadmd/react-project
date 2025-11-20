@@ -74,7 +74,7 @@ export default function Pricing() {
       <p className="mt-2 text-xl">
         Upload 10 videos for free; no credit card required
       </p>
-      <div className="flex gap-2 justify-center items-center mt-8 text-xl">
+      <div className="flex gap-2 justify-center items-center mt-12 mb-4 text-xl">
         <div className="font-bold">
           Yearly <span className="text-accent">(30 days for free)</span>
         </div>

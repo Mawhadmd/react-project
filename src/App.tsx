@@ -12,6 +12,8 @@ import ContentCreators from "./pages/ContentCreators.tsx";
 import  Contact  from "./pages/Contact.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import EmailContact from "./components/EmailContact.tsx";
+import TermsAndConditions from "./pages/Policies/TermsAndConditions.tsx";
+import PrivacyPolicy from "./pages/Policies/PrivacyPolicy.tsx";
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
       <header className="App-header">
         <Navbar />
       </header>
-      <main className="flex-1 ">
+      <main className="flex-1 flex flex-col p-2">
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
@@ -29,6 +32,8 @@ function App() {
           <Route path="/content-creators" element={<ContentCreators />} />
           <Route path="*" element={<ErrorPage />} />
           <Route path="/contact/email" element={<EmailContact/>}></Route>
+          <Route path="/terms-and-conditions" element={<TermsAndConditions/>}></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}></Route>
         </Routes>
       </main>
 

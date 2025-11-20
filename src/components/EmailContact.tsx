@@ -23,7 +23,7 @@ export default function EmailContact() {
         setSubmitted(true);
     }
   return (
-    <form onSubmit={submit} className="sm:w-[30%] mx-auto flex flex-col justify-center  text-secondary">
+    <form onSubmit={submit} className="sm:w-[30%]  mx-auto flex flex-col justify-center flex-1  text-secondary">
       <input
         type="text"
         placeholder="Your Name"
